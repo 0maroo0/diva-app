@@ -1,8 +1,8 @@
 import 'package:diva/core/routing/routes.dart';
+import 'package:diva/features/login/ui/login_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../features/splashScreen/ui/onboard_Screen.dart';
-
+import '../../features/splashScreen/ui/splash_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -10,9 +10,13 @@ class AppRouter {
     // final arguments = settings.arguments;
 
     switch (settings.name) {
-      case Routes.onBoardingScreen:
+      case Routes.splashScreen:
         return MaterialPageRoute(
-          builder: (_) => const OnBoardingScreen(),
+          builder: (_) => const SplashScreen(),
+        );
+      case Routes.loginScreen:
+        return MaterialPageRoute(
+          builder: (_) => const LoginScreen(),
         );
       default:
         return null;
