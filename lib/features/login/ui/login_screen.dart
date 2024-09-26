@@ -1,3 +1,5 @@
+import 'package:diva/features/login/ui/widgets/login_app_bar.dart';
+import 'package:diva/features/login/ui/widgets/login_screen_body.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -5,6 +7,9 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: loginAppBar(),
+      body: const LoginScreenBody(),
+    );
   }
 }
