@@ -17,7 +17,7 @@ class DivaApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Diva App',
         theme: ThemeData(
-          primaryColor: ColorsManager.mainColor,
+          primaryColor: AppColors.mainColor,
           scaffoldBackgroundColor: Colors.white,
         ),
         debugShowCheckedModeBanner: false,
