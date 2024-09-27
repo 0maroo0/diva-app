@@ -1,12 +1,14 @@
 import 'package:diva/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 
-AppBar loginAppBar() {
+AppBar authMethodsAppBar(String title) {
   return AppBar(
     backgroundColor: Colors.white,
     title: Text(
-      'Welcome Back!',
-      style: TextStyles.font18LibreRegular,
+      title,
+      style: TextStyles.font18LibreRegular.copyWith(
+        fontSize: 24,
+      ),
     ),
   );
 }

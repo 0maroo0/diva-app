@@ -1,4 +1,4 @@
-import 'package:diva/features/login/ui/widgets/login_app_bar.dart';
+import 'package:diva/core/widgets/auth_methods_app_bar.dart';
 import 'package:diva/features/login/ui/widgets/login_screen_body.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +8,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: loginAppBar(),
+      appBar: authMethodsAppBar('Welcome Back!'),
       body: const LoginScreenBody(),
     );
   }

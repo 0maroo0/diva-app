@@ -21,6 +21,11 @@ class TextStyles {
     fontWeight: FontWeightHelper.regular,
     color: AppColors.mainColor,
   );
+  static TextStyle font18RobotoRegular = GoogleFonts.roboto(
+    fontSize: 18.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: Colors.white,
+  );
 
   static TextStyle font24BlackBold = TextStyle(
     fontSize: 24.sp,

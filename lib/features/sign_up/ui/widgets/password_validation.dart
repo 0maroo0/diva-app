@@ -7,14 +7,12 @@ class PasswordValidations extends StatelessWidget {
   final bool hasLowerCase;
   final bool hasUpperCase;
   final bool hasSpecialCharacters;
-  final bool hasNumber;
   final bool hasMinLength;
   const PasswordValidations({
     super.key,
     required this.hasLowerCase,
     required this.hasUpperCase,
     required this.hasSpecialCharacters,
-    required this.hasNumber,
     required this.hasMinLength,
   });
 
@@ -29,7 +27,6 @@ class PasswordValidations extends StatelessWidget {
         buildValidationRow(
             'At least 1 special character', hasSpecialCharacters),
         verticalSpace(2),
-        buildValidationRow('At least 1 number', hasNumber),
         verticalSpace(2),
         buildValidationRow('At least 8 characters long', hasMinLength),
       ],
