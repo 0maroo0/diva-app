@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/helpers/constants.dart';
 import '../../../core/helpers/spacing.dart';
-import '../../../core/theming/styles.dart';
 import 'widget/appbar_home.dart';
 import 'widget/category_slider.dart';
 import 'widget/products.dart';
