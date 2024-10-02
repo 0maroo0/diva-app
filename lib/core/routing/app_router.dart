@@ -1,8 +1,10 @@
 import 'package:diva/core/routing/routes.dart';
 import 'package:diva/features/login/ui/login_screen.dart';
+import 'package:diva/features/product/ui/product_deatils.dart';
 import 'package:diva/features/sign_up/ui/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../features/home/ui/main_home_screen.dart';
 import '../../features/splashScreen/ui/splash_screen.dart';
 
 class AppRouter {
@@ -22,6 +24,14 @@ class AppRouter {
       case Routes.signUpScreen:
         return MaterialPageRoute(
           builder: (_) => const SignUpScreen(),
+        );
+        case Routes.homeScreen:
+        return MaterialPageRoute(
+          builder: (_) => const MainHomeScreen(),
+        );
+         case Routes.productDetails:
+        return MaterialPageRoute(
+          builder: (_) => const ProductDetails(),
         );
       default:
         return null;

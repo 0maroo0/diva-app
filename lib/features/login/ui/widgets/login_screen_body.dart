@@ -1,3 +1,4 @@
+import 'package:diva/core/helpers/extensions.dart';
 import 'package:diva/core/helpers/spacing.dart';
 import 'package:diva/core/theming/styles.dart';
 import 'package:diva/core/widgets/app_text_button.dart';
@@ -8,6 +9,8 @@ import 'package:diva/features/login/ui/widgets/methods_to_login.dart';
 import 'package:diva/features/login/ui/widgets/or_line.dart';
 import 'package:diva/features/login/ui/widgets/remember_me_checkbox.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/routing/routes.dart';
 
 class LoginScreenBody extends StatelessWidget {
   const LoginScreenBody({super.key});
@@ -30,7 +33,10 @@ class LoginScreenBody extends StatelessWidget {
             verticalSpace(16),
             AppTextButton(
               buttonText: 'Sign in',
-              onPressed: () {},
+              onPressed: () {
+              context.pushReplacementNamed(Routes.homeScreen);
+
+              },
               borderRadius: 30,
               textStyle: TextStyles.font14RobotoRegular.copyWith(
                 color: Colors.white,
