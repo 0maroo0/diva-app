@@ -1,6 +1,7 @@
 import 'package:diva/features/home/ui/home_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../features/home/ui/categories_home_secreen.dart';
 import 'icons_and_images.dart';
 
 bool isLoggedInUser = false;
@@ -9,7 +10,7 @@ class SharedPrefKeys {
   static const String userToken = 'userToken';
 }
 List<Widget> bottomNavigationHome=const[
-  HomeScreen(), Text('data'), Text('data'), Text('data')
+  HomeScreen(), CategoriesHomeScreen(), Text('data'), Text('data')
 ];
 
 List<String> listOfIcons = [
