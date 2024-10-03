@@ -6,6 +6,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'font_weight_helper.dart';
 
 class TextStyles {
+  static TextStyle font12MulishRegular = GoogleFonts.mulish(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular,
+  );
   static TextStyle font18LibreRegular = GoogleFonts.libreBaskerville(
     fontSize: 18.sp,
     fontWeight: FontWeightHelper.regular,

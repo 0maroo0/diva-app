@@ -16,6 +16,7 @@ class AppTextFormField extends StatelessWidget {
   final Color? backgroundColor;
   final TextEditingController? controller;
   final Function(String?) validator;
+  final FocusNode? focusNode;
   const AppTextFormField({
     super.key,
     this.contentPadding,
@@ -29,11 +30,13 @@ class AppTextFormField extends StatelessWidget {
     this.backgroundColor,
     this.controller,
     required this.validator,
+    this.focusNode,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      focusNode: focusNode,
       controller: controller,
       cursorColor: AppColors.mainColor,
       decoration: InputDecoration(
