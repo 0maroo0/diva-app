@@ -8,7 +8,7 @@ class VerificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: authMethodsAppBar('Verification Code'),
+      appBar: setupAuthMethodsAppBar('Verification Code'),
       body: const VerificationScreenBody(),
     );
   }

@@ -8,7 +8,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: authMethodsAppBar('Welcome Back!'),
+      appBar: setupAuthMethodsAppBar('Welcome Back!'),
       body: const LoginScreenBody(),
     );
   }

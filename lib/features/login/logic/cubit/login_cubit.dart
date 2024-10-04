@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this._loginRepos) : super(LoginInitial());
 
-  final LoginRepos _loginRepos;
+  final LoginRepository _loginRepos;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();

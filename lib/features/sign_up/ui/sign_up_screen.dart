@@ -8,7 +8,7 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: authMethodsAppBar('Sign Up'),
+      appBar: setupAuthMethodsAppBar('Sign Up'),
       body: const SignUpScreenBody(),
     );
   }

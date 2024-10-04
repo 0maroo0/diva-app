@@ -1,7 +1,7 @@
 import 'package:diva/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 
-AppBar authMethodsAppBar(String title) {
+AppBar setupAuthMethodsAppBar(String title) {
   return AppBar(
     backgroundColor: Colors.white,
     title: Text(

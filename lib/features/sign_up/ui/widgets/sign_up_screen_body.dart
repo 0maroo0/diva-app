@@ -31,7 +31,7 @@ class SignUpScreenBody extends StatelessWidget {
               ),
             ),
           );
-          context.pushReplacementNamed(Routes.verificationScreen);
+          context.pushReplacementNamed(Routes.loginScreen);
         } else if (state is SignUpFailureEmail) {
           Navigator.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(

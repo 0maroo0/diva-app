@@ -1,41 +1,34 @@
+import 'package:diva/features/login/data/apis/auth_api.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:diva/core/networking/api_error_handler.dart';
 import 'package:diva/core/networking/api_result.dart';
+import 'package:diva/core/networking/api_error_handler.dart';
 
-class LoginRepos {
-  final FirebaseAuth _auth;
+class LoginRepository {
+  final LoginAPI _loginAPI;
 
-  LoginRepos(this._auth);
+  LoginRepository(this._loginAPI);
 
-  // Login with Email and Password
   Future<ApiResult<User>> loginWithEmail({
     required String email,
     required String password,
   }) async {
     try {
-      final userCredential = await _auth.signInWithEmailAndPassword(
-        email: email,
-        password: password,
+      final userCredential = await _loginAPI.loginWithEmailAndPassword(
+        email,
+        password,
       );
       return ApiResult.success(userCredential.user!);
     } on FirebaseAuthException catch (e) {
-      ErrorHandler errorHandler;
-      if (e.code == 'user-not-found') {
-        errorHandler = ErrorHandler.handle('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        errorHandler = ErrorHandler.handle('Wrong password provided.');
-      } else {
-        errorHandler = ErrorHandler.handle('An error occurred during login.');
-      }
-      return ApiResult.failure(errorHandler);
+      String errorMessage = handleAuthError(e);
+      return ApiResult.failure(ErrorHandler.handle(errorMessage));
     } catch (e) {
-      ErrorHandler errorHandler = ErrorHandler.handle('An unexpected error occurred.');
-      return ApiResult.failure(errorHandler);
+      return ApiResult.failure(
+        ErrorHandler.handle('An unexpected error occurred.'),
+      );
     }
   }
 
-  // Logout
   Future<void> logout() async {
-    await _auth.signOut();
+    await _loginAPI.signOut();
   }
 }
