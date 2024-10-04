@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 extension Navigation on BuildContext {
+  
   Future<dynamic> pushNamed(String routeName, {Object? arguments}) {
     return Navigator.of(this).pushNamed(routeName, arguments: arguments);
   }
@@ -17,6 +18,7 @@ extension Navigation on BuildContext {
   }
 
   void pop() => Navigator.of(this).pop();
+  
 }
 
 extension StringExtension on String? {
@@ -25,4 +27,8 @@ extension StringExtension on String? {
 
 extension ListExtension<T> on List<T>? {
   bool isNullOrEmpty() => this == null || this!.isEmpty;
+}
+extension MediaQueryValues on BuildContext {
+ double get displayWidth => MediaQuery.of(this).size.width;
+  double get displayHeight => MediaQuery.of(this).size.height;  
 }

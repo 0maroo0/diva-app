@@ -3,11 +3,13 @@ import 'package:diva/core/routing/routes.dart';
 import 'package:diva/features/login/logic/cubit/login_cubit.dart';
 import 'package:diva/features/login/ui/login_screen.dart';
 import 'package:diva/features/sign_up/logic/cubit/sign_up_cubit.dart';
+import 'package:diva/features/product/ui/product_deatils.dart';
 import 'package:diva/features/sign_up/ui/sign_up_screen.dart';
 import 'package:diva/features/verification/ui/verification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../features/home/ui/main_home_screen.dart';
 import '../../features/splashScreen/ui/splash_screen.dart';
 
 class AppRouter {
@@ -38,6 +40,14 @@ class AppRouter {
       case Routes.verificationScreen:
         return MaterialPageRoute(
           builder: (_) => const VerificationScreen(),
+        );
+        case Routes.homeScreen:
+        return MaterialPageRoute(
+          builder: (_) => const MainHomeScreen(),
+        );
+         case Routes.productDetails:
+        return MaterialPageRoute(
+          builder: (_) => const ProductDetails(),
         );
       default:
         return null;

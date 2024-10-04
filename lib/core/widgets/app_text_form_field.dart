@@ -48,42 +48,58 @@ class AppTextFormField extends StatelessWidget {
               borderSide: const BorderSide(
                 color: AppColors.mainColor,
                 width: 1.3,
+
+    return SizedBox(
+      width: double.infinity,
+      child: TextFormField(
+        controller: controller,
+        cursorColor: AppColors.mainColor,
+        decoration: InputDecoration(
+          isDense: true,
+          contentPadding: contentPadding ??
+              EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
+          focusedBorder: focusedBorder ??
+              OutlineInputBorder(
+                borderSide: const BorderSide(
+                  color: AppColors.mainColor,
+                  width: 1.3,
+                ),
+                borderRadius: BorderRadius.circular(30.0),
               ),
-              borderRadius: BorderRadius.circular(30.0),
-            ),
-        enabledBorder: enabledBorder ??
-            OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: AppColors.lighterGray,
-                width: 1.3,
+          enabledBorder: enabledBorder ??
+              OutlineInputBorder(
+                borderSide: const BorderSide(
+                  color: AppColors.lighterGray,
+                  width: 1.3,
+                ),
+                borderRadius: BorderRadius.circular(30.0),
               ),
-              borderRadius: BorderRadius.circular(30.0),
+          errorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: Colors.red,
+              width: 1.3,
             ),
-        errorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: Colors.red,
-            width: 1.3,
+            borderRadius: BorderRadius.circular(30.0),
           ),
-          borderRadius: BorderRadius.circular(30.0),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: Colors.red,
-            width: 1.3,
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: Colors.red,
+              width: 1.3,
+            ),
+            borderRadius: BorderRadius.circular(30.0),
           ),
-          borderRadius: BorderRadius.circular(30.0),
+          hintStyle: hintStyle ?? TextStyles.font13RobotoRegular,
+          hintText: hintText,
+          suffixIcon: suffixIcon,
+          fillColor: backgroundColor ?? AppColors.moreLightGray,
+          filled: true,
         ),
-        hintStyle: hintStyle ?? TextStyles.font13RobotoRegular,
-        hintText: hintText,
-        suffixIcon: suffixIcon,
-        fillColor: backgroundColor ?? AppColors.moreLightGray,
-        filled: true,
+        obscureText: isObscureText ?? false,
+        style: TextStyles.font14DarkBlueMedium,
+        validator: (value) {
+          return validator(value);
+        },
       ),
-      obscureText: isObscureText ?? false,
-      style: TextStyles.font14DarkBlueMedium,
-      validator: (value) {
-        return validator(value);
-      },
     );
   }
 }

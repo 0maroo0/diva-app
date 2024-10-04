@@ -1,3 +1,4 @@
+import 'package:diva/core/helpers/extensions.dart';
 import 'package:diva/core/helpers/spacing.dart';
 import 'package:diva/core/theming/styles.dart';
 import 'package:diva/core/widgets/app_text_button.dart';
@@ -12,6 +13,8 @@ import 'package:diva/core/widgets/or_line.dart';
 import 'package:diva/features/login/ui/widgets/remember_me_checkbox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/routing/routes.dart';
 
 class LoginScreenBody extends StatelessWidget {
   const LoginScreenBody({super.key});
@@ -48,6 +51,27 @@ class LoginScreenBody extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/images/tablet.png',
+        child: Column(
+          children: [
+            Image.asset(
+              'assets/images/tablet.png',
+            ),
+            verticalSpace(19),
+            const EmailAndPassword(),
+            verticalSpace(8),
+            const ForgetPasswordText(),
+            const RememberMeCheckbox(),
+            verticalSpace(16),
+            AppTextButton(
+              buttonText: 'Sign in',
+              onPressed: () {
+              context.pushReplacementNamed(Routes.homeScreen);
+
+              },
+              borderRadius: 30,
+              textStyle: TextStyles.font14RobotoRegular.copyWith(
+                color: Colors.white,
+                fontSize: 18,
               ),
               verticalSpace(19),
               const EmailAndPassword(),
