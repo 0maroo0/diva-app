@@ -39,7 +39,6 @@ class _ProductSliderState extends State<ProductSlider> {
                                 image:
                                     AssetImage(IconsAndImages.imageProduct))),
                       ),
-                      DotSlider(currentindex: currentindex)
                     ],
                   );
                 }),
@@ -87,6 +86,7 @@ class _ProductSliderState extends State<ProductSlider> {
                 ),
               ),
             ),
+            DotSlider(currentindex: currentindex)
           ],
         ));
   }

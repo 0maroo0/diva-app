@@ -1,6 +1,5 @@
 import 'package:diva/core/helpers/icons_and_images.dart';
 import 'package:diva/core/helpers/spacing.dart';
-import 'package:diva/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 
 import 'widget/category_slider_image.dart';
@@ -22,12 +21,6 @@ class CategoriesHomeScreen extends StatelessWidget {
       {'name': "shoes", "image": IconsAndImages.shoes},
     ];
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Categories',
-          style: TextStyles.font15DarkBlueBold,
-        ),
-      ),
       body: Container(
         margin: const EdgeInsets.all(10),
         child: Column(
