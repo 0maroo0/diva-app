@@ -1,4 +1,3 @@
-
 import 'package:diva/core/helpers/extensions.dart';
 import 'package:diva/core/theming/colors.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +6,7 @@ import '../../../core/helpers/constants.dart';
 import '../../../core/theming/styles.dart';
 
 class MainHomeScreen extends StatefulWidget {
-const MainHomeScreen ({super.key});
+  const MainHomeScreen({super.key});
 
   @override
   State<MainHomeScreen> createState() => _MainHomeScreenState();
@@ -15,11 +14,10 @@ const MainHomeScreen ({super.key});
 
 class _MainHomeScreenState extends State<MainHomeScreen> {
   int currentIndex = 0;
-@override
-Widget build(BuildContext context) {
-
-  return Scaffold(
-  bottomNavigationBar: Container(
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      bottomNavigationBar: Container(
         margin: EdgeInsets.all(context.displayWidth * .05),
         height: context.displayWidth * .155,
         decoration: BoxDecoration(
@@ -28,7 +26,7 @@ Widget build(BuildContext context) {
             BoxShadow(
               color: Colors.black.withOpacity(.1),
               blurRadius: 30,
-              offset:const Offset(0, 10),
+              offset: const Offset(0, 10),
             ),
           ],
           borderRadius: BorderRadius.circular(50),
@@ -39,7 +37,6 @@ Widget build(BuildContext context) {
           padding: EdgeInsets.symmetric(horizontal: context.displayWidth * .02),
           itemBuilder: (context, index) => InkWell(
             onTap: () {
-             
               setState(() {
                 currentIndex = index;
               });
@@ -58,8 +55,10 @@ Widget build(BuildContext context) {
                   child: AnimatedContainer(
                     duration: const Duration(seconds: 1),
                     curve: Curves.fastLinearToSlowEaseIn,
-                    height: index == currentIndex ? context.displayWidth * .12 : 0,
-                    width: index == currentIndex ? context.displayWidth * .32 : 0,
+                    height:
+                        index == currentIndex ? context.displayWidth * .12 : 0,
+                    width:
+                        index == currentIndex ? context.displayWidth * .32 : 0,
                     decoration: BoxDecoration(
                       color: index == currentIndex
                           ? AppColors.mainColor.withOpacity(.2)
@@ -69,7 +68,7 @@ Widget build(BuildContext context) {
                   ),
                 ),
                 AnimatedContainer(
-                  duration: const  Duration(seconds: 1),
+                  duration: const Duration(seconds: 1),
                   curve: Curves.fastLinearToSlowEaseIn,
                   width: index == currentIndex
                       ? context.displayWidth * .31
@@ -80,20 +79,19 @@ Widget build(BuildContext context) {
                       Row(
                         children: [
                           AnimatedContainer(
-                            duration:const  Duration(seconds: 1),
+                            duration: const Duration(seconds: 1),
                             curve: Curves.fastLinearToSlowEaseIn,
-                            width:
-                                index == currentIndex ? context.displayWidth * .13 : 0,
+                            width: index == currentIndex
+                                ? context.displayWidth * .13
+                                : 0,
                           ),
                           AnimatedOpacity(
                             opacity: index == currentIndex ? 1 : 0,
                             duration: const Duration(seconds: 1),
                             curve: Curves.fastLinearToSlowEaseIn,
                             child: Text(
-                              index == currentIndex
-                                  ? listOfStrings[index]
-: '',
-                              style:  TextStyles.font14BlueSemiBold,
+                              index == currentIndex ? listOfStrings[index] : '',
+                              style: TextStyles.font14BlueSemiBold,
                             ),
                           ),
                         ],
@@ -103,8 +101,9 @@ Widget build(BuildContext context) {
                           AnimatedContainer(
                             duration: const Duration(seconds: 1),
                             curve: Curves.fastLinearToSlowEaseIn,
-                            width:
-                                index == currentIndex ? context.displayWidth * .03 : 20,
+                            width: index == currentIndex
+                                ? context.displayWidth * .03
+                                : 20,
                           ),
                           SvgPicture.asset(
                             listOfIcons[index],
@@ -122,7 +121,7 @@ Widget build(BuildContext context) {
           ),
         ),
       ),
-  body: bottomNavigationHome.elementAt(currentIndex),
-);
-}
+      body: SafeArea(child: bottomNavigationHome.elementAt(currentIndex)),
+    );
+  }
 }
