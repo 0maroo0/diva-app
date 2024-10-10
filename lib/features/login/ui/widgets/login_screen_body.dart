@@ -37,7 +37,7 @@ class LoginScreenBody extends StatelessWidget {
                   ),
                 ),
               );
-      //        context.pushReplacementNamed(Routes.homeScreen);
+              context.pushReplacementNamed(Routes.homeScreen);
             } else if (state is LoginFailure) {
               Navigator.pop(context);
               ScaffoldMessenger.of(context).showSnackBar(
@@ -51,27 +51,6 @@ class LoginScreenBody extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/images/tablet.png',
-        child: Column(
-          children: [
-            Image.asset(
-              'assets/images/tablet.png',
-            ),
-            verticalSpace(19),
-            const EmailAndPassword(),
-            verticalSpace(8),
-            const ForgetPasswordText(),
-            const RememberMeCheckbox(),
-            verticalSpace(16),
-            AppTextButton(
-              buttonText: 'Sign in',
-              onPressed: () {
-              context.pushReplacementNamed(Routes.homeScreen);
-
-              },
-              borderRadius: 30,
-              textStyle: TextStyles.font14RobotoRegular.copyWith(
-                color: Colors.white,
-                fontSize: 18,
               ),
               verticalSpace(19),
               const EmailAndPassword(),
@@ -80,8 +59,8 @@ class LoginScreenBody extends StatelessWidget {
               const RememberMeCheckbox(),
               verticalSpace(16),
               AppTextButton(
-                verticalPadding: 0,
                 buttonText: 'Sign in',
+                verticalPadding: 0,
                 onPressed: () {
                   if (context
                       .read<LoginCubit>()

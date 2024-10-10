@@ -17,6 +17,7 @@ class AppTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final Function(String?) validator;
   final FocusNode? focusNode;
+
   const AppTextFormField({
     super.key,
     this.contentPadding,
@@ -35,23 +36,10 @@ class AppTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      focusNode: focusNode,
-      controller: controller,
-      cursorColor: AppColors.mainColor,
-      decoration: InputDecoration(
-        isDense: true,
-        contentPadding: contentPadding ??
-            EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
-        focusedBorder: focusedBorder ??
-            OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: AppColors.mainColor,
-                width: 1.3,
-
     return SizedBox(
       width: double.infinity,
       child: TextFormField(
+        focusNode: focusNode,
         controller: controller,
         cursorColor: AppColors.mainColor,
         decoration: InputDecoration(
@@ -95,10 +83,8 @@ class AppTextFormField extends StatelessWidget {
           filled: true,
         ),
         obscureText: isObscureText ?? false,
-        style: TextStyles.font14DarkBlueMedium,
-        validator: (value) {
-          return validator(value);
-        },
+        style: inputTextStyle ?? TextStyles.font14DarkBlueMedium,
+        validator: (value) => validator(value),
       ),
     );
   }

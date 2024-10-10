@@ -1,8 +1,5 @@
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 
 class SliderHome extends StatelessWidget {
   const SliderHome({
@@ -16,7 +13,7 @@ class SliderHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
-        height: 200.0,  // Set the height as per your design
+        height: 200.0, // Set the height as per your design
         autoPlay: true,
         enlargeCenterPage: true,
         aspectRatio: 16 / 9,
@@ -27,14 +24,12 @@ class SliderHome extends StatelessWidget {
           builder: (BuildContext context) {
             return Container(
               width: MediaQuery.of(context).size.width,
-              margin:const EdgeInsets.symmetric(horizontal: 5.0),
+              margin: const EdgeInsets.symmetric(horizontal: 5.0),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage(imagePath)),
+                    fit: BoxFit.cover, image: AssetImage(imagePath)),
                 borderRadius: BorderRadius.circular(10),
               ),
-              
             );
           },
         );
