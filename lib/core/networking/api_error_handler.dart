@@ -1,9 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'api_constants.dart';
 import 'api_error_model.dart';
-
-
 
 // TODO: wallahy I will refactor this .. Omar Ahmed
 enum DataSource {
@@ -132,6 +131,41 @@ class ErrorHandler implements Exception {
       // default error
       apiErrorModel = DataSource.DEFAULT.getFailure();
     }
+  }
+}
+
+String handleAuthError(FirebaseAuthException e) {
+  switch (e.code) {
+    case 'user-not-found':
+      return 'No user found for that email.';
+    case 'wrong-password':
+      return 'Wrong password provided.';
+    case 'email-already-in-use':
+      return 'The account already exists for that email.';
+    case 'weak-password':
+      return 'The password provided is too weak.';
+    case 'invalid-email':
+      return 'The email address is badly formatted.';
+    case 'user-disabled':
+      return 'The user account has been disabled by an administrator.';
+    case 'operation-not-allowed':
+      return 'Email/password accounts are not enabled.';
+    case 'too-many-requests':
+      return 'Too many requests. Please try again later.';
+    case 'account-exists-with-different-credential':
+      return 'An account already exists with the same email address but different sign-in credentials.';
+    case 'invalid-verification-code':
+      return 'The verification code provided is invalid.';
+    case 'invalid-verification-id':
+      return 'The verification ID provided is invalid.';
+    case 'session-expired':
+      return 'The session has expired. Please try again.';
+    case 'invalid-phone-number':
+      return 'The phone number entered is invalid.';
+    case 'credential-already-in-use':
+      return 'This credential is already associated with a different user account.';
+    default:
+      return 'An unexpected error occurred. Please try again.';
   }
 }
 

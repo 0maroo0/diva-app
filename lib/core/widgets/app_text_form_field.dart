@@ -16,6 +16,7 @@ class AppTextFormField extends StatelessWidget {
   final Color? backgroundColor;
   final TextEditingController? controller;
   final Function(String?) validator;
+  final FocusNode? focusNode;
   const AppTextFormField({
     super.key,
     this.contentPadding,
@@ -29,10 +30,25 @@ class AppTextFormField extends StatelessWidget {
     this.backgroundColor,
     this.controller,
     required this.validator,
+    this.focusNode,
   });
 
   @override
   Widget build(BuildContext context) {
+    return TextFormField(
+      focusNode: focusNode,
+      controller: controller,
+      cursorColor: AppColors.mainColor,
+      decoration: InputDecoration(
+        isDense: true,
+        contentPadding: contentPadding ??
+            EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
+        focusedBorder: focusedBorder ??
+            OutlineInputBorder(
+              borderSide: const BorderSide(
+                color: AppColors.mainColor,
+                width: 1.3,
+
     return SizedBox(
       width: double.infinity,
       child: TextFormField(

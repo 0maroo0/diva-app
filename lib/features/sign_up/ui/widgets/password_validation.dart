@@ -7,14 +7,12 @@ class PasswordValidations extends StatelessWidget {
   final bool hasLowerCase;
   final bool hasUpperCase;
   final bool hasSpecialCharacters;
-  final bool hasNumber;
   final bool hasMinLength;
   const PasswordValidations({
     super.key,
     required this.hasLowerCase,
     required this.hasUpperCase,
     required this.hasSpecialCharacters,
-    required this.hasNumber,
     required this.hasMinLength,
   });
 
@@ -22,16 +20,13 @@ class PasswordValidations extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        buildValidationRow('At least 1 lowercase letter', hasLowerCase),
+        buildValidationRow('One Lower Character', hasLowerCase),
         verticalSpace(2),
-        buildValidationRow('At least 1 uppercase letter', hasUpperCase),
+        buildValidationRow('One Upper Character', hasUpperCase),
         verticalSpace(2),
-        buildValidationRow(
-            'At least 1 special character', hasSpecialCharacters),
+        buildValidationRow('One Special Number ', hasSpecialCharacters),
         verticalSpace(2),
-        buildValidationRow('At least 1 number', hasNumber),
-        verticalSpace(2),
-        buildValidationRow('At least 8 characters long', hasMinLength),
+        buildValidationRow('8  Characteres Minimum', hasMinLength),
       ],
     );
   }
@@ -39,18 +34,16 @@ class PasswordValidations extends StatelessWidget {
   Widget buildValidationRow(String text, bool hasValidated) {
     return Row(
       children: [
-        const CircleAvatar(
+        CircleAvatar(
           radius: 2.5,
-          backgroundColor: AppColors.gray,
+          backgroundColor:
+              hasValidated ? AppColors.trueColor : AppColors.errorColor,
         ),
         horizontalSpace(6),
         Text(
           text,
-          style: TextStyles.font13DarkBlueRegular.copyWith(
-            decoration: hasValidated ? TextDecoration.lineThrough : null,
-            decorationColor: Colors.green,
-            decorationThickness: 2,
-            color: hasValidated ? AppColors.gray : AppColors.darkBlue,
+          style: TextStyles.font12MulishRegular.copyWith(
+            color: hasValidated ? AppColors.trueColor : AppColors.errorColor,
           ),
         )
       ],

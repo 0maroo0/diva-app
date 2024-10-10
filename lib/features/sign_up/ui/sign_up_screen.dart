@@ -1,3 +1,5 @@
+import 'package:diva/core/widgets/auth_methods_app_bar.dart';
+import 'package:diva/features/sign_up/ui/widgets/sign_up_screen_body.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -5,6 +7,9 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: setupAuthMethodsAppBar('Sign Up'),
+      body: const SignUpScreenBody(),
+    );
   }
 }

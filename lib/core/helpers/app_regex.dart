@@ -5,13 +5,16 @@ class AppRegex {
   }
 
   static bool isPasswordValid(String password) {
-    return RegExp(
-            r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$")
-        .hasMatch(password);
+    return hasLowerCase(password) &&
+        hasUpperCase(password) &&
+        hasNumber(password) &&
+        hasSpecialCharacter(password) &&
+        hasMinLength(password);
   }
 
-    static bool isPhoneNumberValid(String phoneNumber) {
-    return RegExp(r'^(010|011|012|015)[0-9]{8}$').hasMatch(phoneNumber);
+  static bool isPhoneNumberValid(String phoneNumber) {
+    //palsetine phone number
+    return RegExp(r'^(59|056|05[0-9])[0-9]{7}$').hasMatch(phoneNumber);
   }
 
   static bool hasLowerCase(String password) {
