@@ -17,7 +17,7 @@ class FavoriteScreen extends StatelessWidget {
           verticalSpace(10),
           CategorySlider(categories: categories),
           verticalSpace(10),
-          const Products()
+          // const Products()
         ],
       ),
     );

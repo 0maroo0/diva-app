@@ -27,7 +27,7 @@ class CategoriesHomeScreen extends StatelessWidget {
           children: [
             CategorySliderWithImage(categories: categories),
             verticalSpace(10),
-            const Products()
+            // const Products()
           ],
         ),
       ),

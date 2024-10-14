@@ -7,10 +7,11 @@ class SignUpApi {
 
   // Email Sign-Up
   Future<UserCredential> signUpWithEmail(String email, String password) async {
-    return await _auth.createUserWithEmailAndPassword(
+    final user = await _auth.createUserWithEmailAndPassword(
       email: email,
       password: password,
     );
+    return user;
   }
 
   // Phone Sign-Up

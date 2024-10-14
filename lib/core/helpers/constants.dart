@@ -1,5 +1,8 @@
+import 'package:diva/core/di/dependency_injection.dart';
+import 'package:diva/features/home/logic/home_cubit.dart';
 import 'package:diva/features/home/ui/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/home/ui/cart_screen.dart';
 import '../../features/home/ui/categories_home_secreen.dart';
@@ -12,12 +15,20 @@ class SharedPrefKeys {
   static const String userToken = 'userToken';
 }
 
-List<Widget> bottomNavigationHome = const [
-  HomeScreen(),
-  CategoriesHomeScreen(),
-  CartScreen(),
-  FavoriteScreen(),
-];
+getScreen(BuildContext context, int index) {
+  List<Widget> bottomNavigationHome = [
+    BlocProvider(
+      create: (context) => HomeCubit(getIt())
+        ..fetchHomeProducts()
+        ..fetchFavoriteProducts()..fetchCartProducts(),
+      child: const HomeScreen(),
+    ),
+    const CategoriesHomeScreen(),
+    const CartScreen(),
+    const FavoriteScreen(),
+  ];
+  return bottomNavigationHome[index];
+}
 
 List<String> listOfIcons = [
   IconsAndImages.home,

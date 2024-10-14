@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,24 +14,25 @@ class CategorySlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(height: 50.h, 
-    child: ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: categories.length,
-      itemBuilder: (context,i){
-        return Container(
-          alignment: Alignment.center,
-          decoration:  BoxDecoration(color: AppColors.pink , borderRadius:
-          BorderRadius.circular(25)
-           ),
-          margin: const EdgeInsets.only(right: 10),
-          padding: const EdgeInsets.symmetric(vertical:  5, horizontal: 15),
-        child: Text(
-      categories[i],
-      style: TextStyles.font14BlueSemiBold,
-    ),
-        );
-      }),
+    return SizedBox(
+      height: 50.h,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: categories.length,
+          itemBuilder: (context, index) {
+            return Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  color: AppColors.pink,
+                  borderRadius: BorderRadius.circular(25)),
+              margin: const EdgeInsets.only(right: 10),
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+              child: Text(
+                categories[index],
+                style: TextStyles.font14BlueSemiBold,
+              ),
+            );
+          }),
     );
   }
 }

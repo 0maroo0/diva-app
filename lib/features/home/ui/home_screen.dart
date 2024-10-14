@@ -14,20 +14,25 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
-
-return Scaffold(body:SafeArea(
-  child: Container(padding: EdgeInsets.all(10.w),
-  child: Column(children: [
-    const AppBarHome(),
-    const SearchWidget(), 
-    SliderHome(imagePaths: imagePaths), 
-    verticalSpace(10),
-    CategorySlider(categories: categories), 
-    verticalSpace(10),
-
-     const Products()
-  ],),),
-));
-}
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.all(10.w),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const AppBarHome(),
+                const SearchWidget(),
+                SliderHome(imagePaths: imagePaths),
+                verticalSpace(10),
+                CategorySlider(categories: categories),
+                verticalSpace(10),
+                const Products()
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
