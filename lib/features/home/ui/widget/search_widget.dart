@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -14,13 +13,23 @@ class SearchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 80.h, 
-      child: Row(children: [
-          Expanded(child: AppTextFormField(hintText: 'search', validator: (val){}, suffixIcon: SvgPicture.asset('assets/images/search.png'), )), 
+      height: 80.h,
+      child: Row(
+        children: [
+          Expanded(
+            child: AppTextFormField(
+              hintText: 'search',
+              validator: (val) {},
+              suffixIcon: SvgPicture.asset(
+                'assets/images/search.svg',
+                fit: BoxFit.scaleDown,
+              ),
+            ),
+          ),
           horizontalSpace(10),
           SvgPicture.asset('assets/images/filter.svg')
-    
-        ],),
+        ],
+      ),
     );
   }
 }

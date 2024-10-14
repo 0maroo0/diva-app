@@ -121,7 +121,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
           ),
         ),
       ),
-      body: SafeArea(child: bottomNavigationHome.elementAt(currentIndex)),
+      body: SafeArea(child: getScreen(context, currentIndex)),
     );
   }
 }

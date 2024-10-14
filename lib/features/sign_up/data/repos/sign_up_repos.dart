@@ -1,11 +1,14 @@
+import 'package:diva/core/helpers/firestore_paths.dart';
 import 'package:diva/core/networking/api_error_handler.dart';
 import 'package:diva/core/networking/api_result.dart';
+import 'package:diva/core/networking/firestore_services.dart';
 import 'package:diva/features/sign_up/data/api/sign_up_api.dart';
 import 'package:diva/features/sign_up/data/model/sign_up_response.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUpRepos {
   final SignUpApi _signUpApi;
+  final firestoreServices = FirestoreService.instance;
 
   SignUpRepos(this._signUpApi);
 
@@ -20,6 +23,10 @@ class SignUpRepos {
         userId: userCredential.user!.uid,
         email: userCredential.user!.email!,
       );
+      firestoreServices.setData(path: ApiPaths.user(), data: {
+        'userId': response.userId,
+        'email': response.email,
+      });
       return ApiResult.success(response);
     } on FirebaseAuthException catch (e) {
       ErrorHandler errorHandler = ErrorHandler.handle(e.message!);
